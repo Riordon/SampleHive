@@ -9,7 +9,10 @@ public class UDFParseUrlToChannel extends UDF{
 		 
 		 int begin = url.indexOf("channel");
 		 
-		 return url.substring(begin + 8, begin + 12);
+		 String result = url.substring(begin + 8, begin + 12);
+		 if ((result != "2084") && (result != "2085")) return "";
+		 
+		 return result;
 	 }
 	 
 //	 
