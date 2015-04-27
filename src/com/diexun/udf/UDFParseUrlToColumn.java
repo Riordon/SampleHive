@@ -3,11 +3,6 @@ package com.diexun.udf;
 import org.apache.hadoop.hive.ql.exec.UDF;
 
 public class UDFParseUrlToColumn extends UDF{
-	private static String[] columns = {"HotConcern","BrandGallery","InspiredTheme","FashionBulletin",
-									   "TrendAnalysis","Planning","ColorTrend","PatternTrend",
-									   "Design","Tanalysis","WindowAnalysis","Book",
-									   "ColorAnalysis","RunwayTrends","DesignPlus"};
-	private int colums_length = columns.length;
 	
 	public String evaluate(String url) {
 		 if (url == null) return null;
@@ -18,16 +13,12 @@ public class UDFParseUrlToColumn extends UDF{
 		 int end = tempUrl.indexOf("/");
 		 String result = tempUrl.substring(0, end);
 		 
-		 for (int i = 0; i < colums_length; i++) {
-			 if(columns[i].indexOf(result) != -1) return result;
-		 }
-		 
-		 return null;
+		 return result;
 	 }
 	 
-//	 
+	 
 //	 public static void main(String... args) {
 //		 UDFParseUrlToColumn obj = new UDFParseUrlToColumn();
-//		 System.out.println(obj.evaluate("http://epd.sxxl.com/BrandGallery/themeList/channel/2084.html"));
+//		 System.out.println(obj.evaluate("http://epd.sxxl.com/FashionStarNews/index.html"));
 //	 }
 }
