@@ -13,7 +13,9 @@ public class UDFCheckUrl extends UDF{
 	private static int columns_length = columns.length;
 	
 	 public boolean evaluate(String url) {
-		 if (url.contains("http://epd.sxxl.com/Search")) return false;
+		 if (url.contains("http://epd.sxxl.com/Search")) return false; //filter the search url
+		 if (url.contains("http://epd.sxxl.com/Search")) return false; //filter the download url		 
+		 if (url.contains("sort_id")) return false; //filter the old url
 		 
 		 for (int i = 0; i < columns_length; i++) {
 			 if (url.contains(columns[i])) return true;
